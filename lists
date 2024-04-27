@@ -1,0 +1,50 @@
+package com.example.firstproject
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Text
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.pointer.PointerIcon.Companion.Text
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+
+//creating List views
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            val scrollState= rememberScrollState()
+           Column (
+               //to scroll up
+               modifier = Modifier
+                   .verticalScroll(scrollState)
+           ){
+               for (i in 1..90){
+                   Text(
+                       text="item $i",
+                       fontSize = 24.sp,
+                       fontWeight = FontWeight.Bold,
+                       textAlign = TextAlign.Center,
+                       modifier = Modifier
+                           .fillMaxWidth()
+                           .padding(vertical = 24.dp)
+
+                   )
+               }
+           }
+
+        }
+    }
+}
+
+//
+
+   
